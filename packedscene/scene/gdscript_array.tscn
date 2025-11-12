@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://btpruchh3t81v"]
+
+[ext_resource type="PackedScene" uid="uid://b6b6cvxqvr17v" path="res://packedscene/plugin/quick_IDE.tscn" id="1_6rl8f"]
+[ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="2_4lfai"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_nthyt"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"Array": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"String": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"bool": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"float": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"int": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.23921569, 0.32156864, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024691358
+anchor_top = 0.013888889
+anchor_right = 0.97530866
+anchor_bottom = 0.9861111
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="QUICK_IDE" parent="VBoxContainer" instance=ExtResource("1_6rl8f")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_4lfai")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "Array
+[font_size=25]一种内置数据结构，包含一系列元素。"
+fit_content = true
+
+[node name="var" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/var"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/var/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4lfai")
+theme_override_font_sizes/font_size = 25
+text = "示例："
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/var/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("2_4lfai")
+theme_override_font_sizes/font_size = 20
+text = "# 1
+pass"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_nthyt")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true

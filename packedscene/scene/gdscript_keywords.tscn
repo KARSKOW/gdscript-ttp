@@ -1,0 +1,496 @@
+[gd_scene load_steps=10 format=3 uid="uid://0igv1cdfc86x"]
+
+[ext_resource type="PackedScene" uid="uid://b6b6cvxqvr17v" path="res://packedscene/plugin/quick_IDE.tscn" id="1_c0cbm"]
+[ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="2_0xc4d"]
+[ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="3_2kiii"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_paire"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"break": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"for": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"in": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"while": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_nthyt"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"Array": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"String": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"bool": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"float": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"int": Color(0.5176471, 0.91764706, 0.7921569, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_otots"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_ydxtw"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_ahyyk"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"break": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"continue": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"for": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"in": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"range": Color(0.32941177, 0.32941177, 0.6039216, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_usoil"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"break": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"false": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"for": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"in": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"true": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"while": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.23921569, 0.32156864, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024691358
+anchor_top = 0.013888889
+anchor_right = 0.97530866
+anchor_bottom = 0.9861111
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="QUICK_IDE" parent="VBoxContainer" instance=ExtResource("1_c0cbm")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="extends" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/extends"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/extends/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0xc4d")
+theme_override_fonts/bold_font = ExtResource("3_2kiii")
+theme_override_fonts/bold_italics_font = ExtResource("3_2kiii")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b]extends
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/extends/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "定义当前类的父类"
+horizontal_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/extends/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "# 1
+# 在多数情况下，只要你为节点附加脚本，Godot会自动写入自身节点的类。
+# 或者可以自行编写，类必须与节点的类兼容。
+extends Node"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_paire")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+
+[node name="var" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/var"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/var/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0xc4d")
+theme_override_fonts/bold_font = ExtResource("3_2kiii")
+theme_override_fonts/bold_italics_font = ExtResource("3_2kiii")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b]var
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/var/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "一个变量，变量名可以自定义。"
+horizontal_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/var/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+theme_override_font_sizes/font_size = 16
+text = "# 1
+## 简单赋值，动态识别类型
+var [变量名] = 100 #赋值100给当前的变量
+
+# 2
+## 也可以用静态编程的方式编写
+var [变量名] : float #类型 = 12.3[类型的值]
+
+# 3
+## 也可以是其他类型赋值到变量中
+var [变量名] = \"hello world\"
+var [变量名] = true
+var [变量名] = [1, 2, 3]
+var [变量名] = 100
+var [变量名] = 12.3
+
+## 也可以用静态编程的方式编写
+var [变量名] : String #类型 = \"hello world\"
+var [变量名] : bool #类型 = true
+var [变量名] : Array #类型 = [1, 2, 3]
+var [变量名] : int #类型 = 100
+var [变量名] : float #类型 = 12.3"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_nthyt")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+
+[node name="if_else" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/if_else"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/if_else/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0xc4d")
+theme_override_fonts/bold_font = ExtResource("3_2kiii")
+theme_override_fonts/bold_italics_font = ExtResource("3_2kiii")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b]if / else
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/if_else/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "判断一个变量是[true]或[false]"
+horizontal_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/if_else/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+theme_override_font_sizes/font_size = 16
+text = "if [需要判断的变量或函数]:
+	[执行结果为[true]的代码块]
+else:
+	[执行结果为[false]的代码块]"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_otots")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+
+[node name="match" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/match"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/match/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0xc4d")
+theme_override_fonts/bold_font = ExtResource("3_2kiii")
+theme_override_fonts/bold_italics_font = ExtResource("3_2kiii")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b]match
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/match/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "分支流程，达到某些条件后执行。"
+horizontal_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/match/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+theme_override_font_sizes/font_size = 16
+text = "var [变量名] = [结果]
+match [变量名或函数]：
+	[结果 1]：
+		[代码块]
+	[结果 2]：
+		[代码块]
+	[结果 3]：
+		[代码块]"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_ydxtw")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+
+[node name="for" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/for"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/for/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0xc4d")
+theme_override_fonts/bold_font = ExtResource("3_2kiii")
+theme_override_fonts/bold_italics_font = ExtResource("3_2kiii")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b]for
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/for/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "循环体，需要遍历数组或字典就会用到。"
+horizontal_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/for/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+theme_override_font_sizes/font_size = 16
+text = "# 1
+for [自定义名称] in [你的数组]：
+	[代码块]
+
+# 2
+for [自定义名称] in range([整数类型])：
+	[代码块]
+
+# 3
+[完整示范]
+var arr = [1, 2, 3, 4, 5]
+for i in arr:
+	if i == 3:
+		break 
+		# 遍历指针:[1, 2, 3, (break)]
+
+for i in arr:
+	if i == 2:
+		continue 
+		# 遍历指针:[1, (continue), 3, 4, 5]"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_ahyyk")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+
+[node name="while" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/while"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/while/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0xc4d")
+theme_override_fonts/bold_font = ExtResource("3_2kiii")
+theme_override_fonts/bold_italics_font = ExtResource("3_2kiii")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b]while
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/while/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "只要没有停止循环，这个代码块就会一直循环下去。"
+horizontal_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/while/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_2kiii")
+text = "# 1
+[没有加条件的情况下使用while，程序会崩溃。]
+[因为条件一直为true，所以才会没有阻碍地循环下去。]
+while [你的变量名或函数]：
+	[这个代码块会一直执行]
+	[务必加条件]
+
+# 2
+[最好加条件防止一直循环下去]
+var num = 1
+while num <= 5 [最好加条件]:
+	num += 1
+	[循环一遍，num 则 +1，直到大于或等于 5 ( 停止循环 )]
+	[只有大于或等于 5，条件为false，循环才会停止。]
+
+# 3
+[或者手动停止循环]
+var num = 1
+while num:
+	if num == 3: [如果 num 为等于 3]
+		break
+		[加入 break 语句可以停止]"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_usoil")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true

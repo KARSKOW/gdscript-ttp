@@ -1,0 +1,611 @@
+[gd_scene load_steps=7 format=3 uid="uid://u2dx4snu0l0r"]
+
+[ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="1_chsq7"]
+[ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="2_665rt"]
+[ext_resource type="FontFile" uid="uid://beoa1nxbj3p7k" path="res://font/VictorMono-BoldOblique.ttf" id="3_byd4d"]
+[ext_resource type="FontFile" uid="uid://csa8mxw2kpadd" path="res://font/VictorMono-MediumOblique.ttf" id="3_ksgev"]
+[ext_resource type="Script" uid="uid://cf65hjd7a6p0d" path="res://script/bbcode_showcast.gd" id="4_665rt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_665rt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.23921569, 0.32156864, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024691358
+anchor_top = 0.06944445
+anchor_right = 0.97530866
+anchor_bottom = 0.9861111
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="example" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/example"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/example/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_665rt")
+theme_override_font_sizes/font_size = 25
+text = " > BBCODE"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/example/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("2_665rt")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_665rt")
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/example/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_665rt")
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+gutters_draw_line_numbers = true
+indent_automatic = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/example/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/example/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(140.39, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_665rt")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = ">_ ENTER"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 19
+alignment = 1
+
+[node name="rainbow" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/rainbow"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/rainbow/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("2_665rt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[rainbow]The quick brown fox jumps over the lazy dog[/rainbow]
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/rainbow/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[rainbow] 效果标签
+[/rainbow] 效果标签截断
+配置：
+freq 频率
+
+sat 饱和度
+
+val 明亮程度
+
+speed 时间周期
+
+例：[rainbow freq=float sat=float val=float speed=float] text [/rainbow]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="wave" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/wave"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/wave/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_italics_font = ExtResource("2_665rt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[wave]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/wave/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[wave] 效果标签
+[/wave] 效果标签截断
+配置：
+amp 控制高低
+
+freq 高低频率幅度
+
+connected 如果为1，则带有连字的字形将一起移动；如果为0，则每个字形都会单独移动。
+
+例：[wave amp=float freq=float connected=float] text [/rainbow]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="tornado" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/tornado"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/tornado/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_italics_font = ExtResource("2_665rt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[tornado]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/tornado/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[tornado] 效果标签
+[/tornado] 效果标签截断
+配置：
+radius 控制偏移。
+
+freq 绕圈移动速度
+
+connected 如果为1，则带有连字的字形将一起移动；如果为0，则每个字形都会单独移动。
+
+例：[rainbow radius=float freq=float connected=float] text [/rainbow]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="shake" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/shake"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/shake/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_italics_font = ExtResource("2_665rt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[shake]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/shake/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[shake] 效果标签
+[/shake] 效果标签截断
+配置：
+rate 控制文本抖动的速度。
+
+level 控制文本与原点的偏移距离。
+
+connected 如果为1，则带有连字的字形将一起移动；如果为0，则每个字形都会单独移动。
+
+例：[shake rate=float level=float connected=float] text [/rainbow]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="fade" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/fade"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/fade/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[fade start=1 length=80]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/fade/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[fade] 效果标签
+[/fade] 效果标签截断
+配置：
+start 控制衰减的起始位置
+
+length 控制淡入淡出的字符数。
+
+例：[fade start=float length=float] text [/fade]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="pulse" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/pulse"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/pulse/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[pulse]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/pulse/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[pulse] 效果标签
+[/pulse] 效果标签截断
+配置：
+freq 控制频率
+
+color 目标颜色
+
+ease 默认-2.0
+
+例：[pulse freq=float color=red ease=-2.0] text [/pulse]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="b" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/b"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/b/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/b/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[b] 粗字效果
+[/b] 粗字效果截断
+
+例：[b] text [/b]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="i" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/i"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/i/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "[i]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/i/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[i] 斜体字效果
+[/i] 斜体字效果截断
+
+例：[i] text [/i]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="u" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/u"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/u/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[u]The quick brown fox jumps over the lazy dog"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/u/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[u] 下划线效果
+[/u] 下划线效果截断
+
+例：[u] text [/u]
+
+"
+fit_content = true
+
+[node name="s" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/s"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/s/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[s]The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/s/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[s] 下划线效果
+[/s] 下划线效果截断
+
+例：[s] text [/s]
+
+"
+fit_content = true
+scroll_active = false
+
+[node name="img" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/img"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/img/VBoxContainer"]
+custom_minimum_size = Vector2(0, 178.525)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "godot [img=bottom]icon.svg[/img] engine
+The quick brown fox jumps over the lazy dog"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/img/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[img] 需要提供图片路径，见示例。
+[/img] 截断
+
+例：godot [img]icon.svg[/img] engine
+
+img=bottom 修改图片位置，例如img=top、img=center。
+
+"
+fit_content = true
+
+[node name="color" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/color"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/color/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_fonts/bold_font = ExtResource("2_665rt")
+theme_override_fonts/bold_italics_font = ExtResource("3_byd4d")
+theme_override_fonts/italics_font = ExtResource("3_ksgev")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[color=green]The quick brown fox jumps over the lazy dog"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/color/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_chsq7")
+theme_override_font_sizes/normal_font_size = 18
+text = "[color=green] 颜色效果，需要赋值才能使用。
+[/color] 颜色效果截断
+
+例：[color=green] text [/color]
+
+"
+fit_content = true
+scroll_active = false
+
+[connection signal="pressed" from="VBoxContainer/example/VBoxContainer/HBoxContainer/Button" to="VBoxContainer/example/VBoxContainer/RichTextLabel" method="_on_button_pressed"]

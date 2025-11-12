@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6hf1e1mhn6f5"]
+
+[ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="1_1o1sx"]
+[ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="1_rqx2n"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.23921569, 0.32156864, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 367.88)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_1o1sx")
+theme_override_font_sizes/normal_font_size = 81
+bbcode_enabled = true
+text = "[color=88b6dd]gdscript[/color]
+TTP
+[font_size=30][test-1]
+"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqx2n")
+theme_override_font_sizes/font_size = 25
+text = " -> 作者 : KARSKOW*"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqx2n")
+theme_override_font_sizes/font_size = 25
+text = " -> 引擎 : Godot Engine"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqx2n")
+theme_override_font_sizes/font_size = 25
+text = " -> Font : VictorMono [github: rubjo]"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqx2n")
+theme_override_font_sizes/font_size = 25
+text = " -> Version : un-public"

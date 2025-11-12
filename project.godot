@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="gdscript-ttp"
+run/main_scene="uid://qfxp3gwpa0dv"
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="uid://bx3nubwytcxv3"
+
+[autoload]
+
+CallableGUI="*res://script/callable_gui.gd"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale=1.2
+window/handheld/orientation=1
+
+[global_group]
+
+main=""
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

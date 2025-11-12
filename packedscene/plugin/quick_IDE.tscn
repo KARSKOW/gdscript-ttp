@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6b6cvxqvr17v"]
+
+[ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="1_n8xno"]
+[ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="2_fxfij"]
+[ext_resource type="FontFile" uid="uid://csa8mxw2kpadd" path="res://font/VictorMono-MediumOblique.ttf" id="3_ryv07"]
+[ext_resource type="Script" uid="uid://ce8u0mt5umx4m" path="res://script/quick_ide.gd" id="4_fxfij"]
+[ext_resource type="Script" uid="uid://bn40nrmir72lm" path="res://script/Q_IDE/IDE_enter.gd" id="5_ryv07"]
+[ext_resource type="Script" uid="uid://djfqiudfvby5j" path="res://script/Q_IDE/IDE_clear.gd" id="6_2bxnq"]
+[ext_resource type="Script" uid="uid://c03sdqbkcelqf" path="res://script/Q_IDE/IDE_reset.gd" id="6_rnf4b"]
+[ext_resource type="Script" uid="uid://ch6c6mcem3x3l" path="res://script/Q_IDE/IDE_indent_lines.gd" id="6_ryv07"]
+[ext_resource type="Script" uid="uid://c24dmfimur3nd" path="res://script/Q_IDE/IDE_result.gd" id="10_fmm56"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_rnf4b"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"for": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"in": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"range": Color(0.32941177, 0.32941177, 0.6039216, 1),
+"return": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"str": Color(0.32941177, 0.32941177, 0.6039216, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_665rt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="QUICK_IDE" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.35677084
+grow_horizontal = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 25
+text = " > QuickIDE"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_rnf4b")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+script = ExtResource("4_fxfij")
+reset_code = "extends Node
+func pressed_enter():
+	return 100"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="ENTER" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("test_node", "code_edit", "output_result")]
+clip_contents = true
+custom_minimum_size = Vector2(140.39, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = ">_ ENTER"
+script = ExtResource("5_ryv07")
+test_node = NodePath("../../../Node")
+code_edit = NodePath("../../CodeEdit")
+output_result = NodePath("../../RichTextLabel")
+
+[node name="RESET" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("code_edit")]
+clip_contents = true
+custom_minimum_size = Vector2(140.39, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = "* RESET"
+script = ExtResource("6_rnf4b")
+code_edit = NodePath("../../CodeEdit")
+reset_code = "extends Node
+func pressed_enter():
+	return 100"
+
+[node name="INDENT" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("code_edit")]
+clip_contents = true
+custom_minimum_size = Vector2(140.39, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = "->|"
+script = ExtResource("6_ryv07")
+code_edit = NodePath("../../CodeEdit")
+
+[node name="Clear" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("output_result")]
+clip_contents = true
+custom_minimum_size = Vector2(140.39, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = "[X]Clear"
+script = ExtResource("6_2bxnq")
+output_result = NodePath("../RichTextLabel")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 20
+text = " result->"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/line_separation = 1
+theme_override_fonts/normal_font = ExtResource("2_fxfij")
+theme_override_fonts/bold_font = ExtResource("1_n8xno")
+theme_override_fonts/bold_italics_font = ExtResource("1_n8xno")
+theme_override_fonts/italics_font = ExtResource("3_ryv07")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+bbcode_enabled = true
+scroll_following = true
+script = ExtResource("10_fmm56")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ENTER" to="VBoxContainer/HBoxContainer/ENTER" method="_on_pressed"]
+[connection signal="print_result" from="VBoxContainer/HBoxContainer/ENTER" to="VBoxContainer/RichTextLabel" method="_on_printter"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RESET" to="VBoxContainer/HBoxContainer/RESET" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/INDENT" to="VBoxContainer/HBoxContainer/INDENT" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Clear" to="VBoxContainer/Clear" method="_on_pressed"]
