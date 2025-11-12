@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://qfxp3gwpa0dv"]
+[gd_scene load_steps=6 format=3 uid="uid://qfxp3gwpa0dv"]
 
 [ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="1_s5c3m"]
-[ext_resource type="Texture2D" uid="uid://yo0jlp4580tr" path="res://logo_large_monochrome_dark.png" id="2_omvhw"]
 [ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="3_y4f05"]
 [ext_resource type="Script" uid="uid://dumsb3v8dgcx0" path="res://script/bbcode_pressed.gd" id="4_tohbh"]
 [ext_resource type="Script" uid="uid://cg5ss5x8usnim" path="res://script/variant_pressed.gd" id="5_btrkq"]
@@ -47,20 +46,6 @@ TTP
 [font_size=30][test-1]
 "
 vertical_alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "使用此软件制作："
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(0, 130.93)
-layout_mode = 2
-texture = ExtResource("2_omvhw")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 clip_contents = false

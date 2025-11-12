@@ -33,7 +33,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="example" parent="." instance=ExtResource("1_w3xnd")]
 layout_mode = 1
-offset_left = 24.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 250.0
+anchor_left = 0.037037037
+anchor_top = 0.020833334
+anchor_right = 0.962963
+anchor_bottom = 0.37760416

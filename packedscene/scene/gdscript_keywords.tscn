@@ -194,7 +194,8 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_fonts/font = ExtResource("3_2kiii")
 text = "# 1
-# 在多数情况下，只要你为节点附加脚本，Godot会自动写入自身节点的类。
+# 在多数情况下
+# 只要你为节点附加脚本，Godot会自动写入自身节点的类。
 # 或者可以自行编写，类必须与节点的类兼容。
 extends Node"
 placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
