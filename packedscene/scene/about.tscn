@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6hf1e1mhn6f5"]
+[gd_scene load_steps=4 format=3 uid="uid://b6hf1e1mhn6f5"]
 
 [ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="1_1o1sx"]
 [ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="1_rqx2n"]
+[ext_resource type="Script" uid="uid://be1i3qlv53bnd" path="res://script/version.gd" id="3_511y1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -70,8 +71,8 @@ theme_override_fonts/font = ExtResource("1_rqx2n")
 theme_override_font_sizes/font_size = 25
 text = " -> Font : VictorMono [github: rubjo]"
 
-[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="version" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rqx2n")
 theme_override_font_sizes/font_size = 25
-text = " -> Version : un-public"
+script = ExtResource("3_511y1")

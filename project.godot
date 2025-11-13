@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="gdscript-ttp"
+config/version="un-public"
 run/main_scene="uid://qfxp3gwpa0dv"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.5", "Mobile")

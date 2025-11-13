@@ -1,0 +1,152 @@
+[gd_scene load_steps=5 format=3 uid="uid://x7tp23hg5une"]
+
+[ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="1_1iddt"]
+[ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="2_ipetb"]
+[ext_resource type="Script" uid="uid://ce8u0mt5umx4m" path="res://script/quick_ide.gd" id="3_1iddt"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_ipetb"]
+number_color = Color(0.5176471, 0.91764706, 0.7921569, 1)
+symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
+member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
+keyword_colors = {
+"else": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"for": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"func": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"if": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"in": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"match": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"range": Color(0.32941177, 0.32941177, 0.6039216, 1),
+"return": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"str": Color(0.32941177, 0.32941177, 0.6039216, 1),
+"var": Color(0.7921569, 0.36862746, 0.43529412, 1)
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.23921569, 0.32156864, 1)
+
+[node name="extends" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.049382716
+anchor_top = 0.013888889
+anchor_right = 0.9506173
+anchor_bottom = 0.9861111
+theme_override_constants/separation = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="label" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_1iddt")
+theme_override_fonts/bold_font = ExtResource("2_ipetb")
+theme_override_fonts/bold_italics_font = ExtResource("2_ipetb")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b] START
+"
+fit_content = true
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "既然你决定使用这个软件, 那么我就要提问以下简单的问题:
+-> 你的需求是什么？
+-> 你有没有明确自己要实现的功能和目标？
+-> 你具体要做的是哪个项目？
+如果要学习, 那么最好给自己设立一个目标要做什么, 然后决定是否要继续。
+我开发这个软件的目的是存储我学到的知识, 以简单易懂的方式呈现给大家。
+至于要拿这段代码怎么变通，由你们自由发挥。
+教程会在此处展示, 尽量做到易懂易编。
+"
+vertical_alignment = 1
+
+[node name="label2" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_1iddt")
+theme_override_fonts/bold_font = ExtResource("2_ipetb")
+theme_override_fonts/bold_italics_font = ExtResource("2_ipetb")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#e6677b] 编程
+"
+fit_content = true
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "最基础的一小段代码。
+下面是代码片段, 里面有介绍："
+vertical_alignment = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ipetb")
+theme_override_font_sizes/font_size = 18
+text = "extends Node # 这个节点的类
+
+var a = 5 # 变量 (可读可写)
+const b = 10 # 常量 (可读不可写) (需要赋值)
+
+func _ready():
+# 场景加载完成进入场景后，此代码块执行一次
+	a = 10 # 向变量\"a\"改为 10
+	a = b # 向变量 \"a\" 改为 \"b\" 的值
+	b = 10 # [X] 报错，常量不可直接改值"
+placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("CodeHighlighter_ipetb")
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+script = ExtResource("3_1iddt")
+reset_code = "extends Node
+func pressed_enter():
+	return 100"
