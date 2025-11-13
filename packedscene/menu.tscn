@@ -67,16 +67,6 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="IDE" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/tools"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_y4f05")
-theme_override_font_sizes/font_size = 34
-text = "[>_]
-Q-IDE"
-script = ExtResource("4_tohbh")
-next_scene = "uid://bqquh6yg3vasc"
-
 [node name="about" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/tools"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -94,6 +84,26 @@ theme_override_font_sizes/font_size = 35
 text = "[<-
 退出"
 script = ExtResource("6_ew10x")
+
+[node name="IDE" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/tools"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y4f05")
+theme_override_font_sizes/font_size = 34
+text = "[>_]
+Q-IDE"
+script = ExtResource("4_tohbh")
+next_scene = "uid://bqquh6yg3vasc"
+
+[node name="start" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/tools"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y4f05")
+theme_override_font_sizes/font_size = 34
+text = "START
+开始"
+script = ExtResource("4_tohbh")
+next_scene = "uid://x7tp23hg5une"
 
 [node name="2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -127,8 +137,9 @@ BBCode"
 script = ExtResource("4_tohbh")
 next_scene = "uid://u2dx4snu0l0r"
 
-[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/tools/IDE" to="VBoxContainer/ScrollContainer/VBoxContainer/tools/IDE" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/tools/about" to="VBoxContainer/ScrollContainer/VBoxContainer/tools/about" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/tools/quit" to="VBoxContainer/ScrollContainer/VBoxContainer/tools/quit" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/tools/IDE" to="VBoxContainer/ScrollContainer/VBoxContainer/tools/IDE" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/tools/start" to="VBoxContainer/ScrollContainer/VBoxContainer/tools/start" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/example/gd" to="VBoxContainer/ScrollContainer/VBoxContainer/example/gd" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/example/bbcode" to="VBoxContainer/ScrollContainer/VBoxContainer/example/bbcode" method="_on_pressed"]

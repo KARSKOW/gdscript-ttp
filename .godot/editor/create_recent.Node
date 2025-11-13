@@ -1,14 +1,14 @@
+Label
+CodeEdit
 ScrollContainer
 Node2D
 TextEdit
 Button
 RichTextLabel
-Label
 ColorRect
 VBoxContainer
 GridContainer
 Node
 HBoxContainer
 PanelContainer
-CodeEdit
 LineEdit
