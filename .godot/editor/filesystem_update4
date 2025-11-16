@@ -1,0 +1,6 @@
+res://script/quick_ide.gd
+res://packedscene/plugin/quick_IDE.tscn
+res://script/Q_IDE/IDE_copy.gd
+res://script/Q_IDE/IDE_paste.gd
+res://packedscene/scene/about.tscn
+res://export_presets.cfg

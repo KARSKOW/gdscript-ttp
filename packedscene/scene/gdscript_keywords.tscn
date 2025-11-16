@@ -160,6 +160,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="extends" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -207,6 +208,7 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 
 [node name="var" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -272,6 +274,7 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 
 [node name="if_else" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -319,6 +322,7 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 
 [node name="match" type="PanelContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -421,9 +425,9 @@ for i in arr:
 		# 遍历指针:[1, 2, 3, (break)]
 
 for i in arr:
-	if i == 2:
+	if i != 2:
 		continue 
-		# 遍历指针:[1, (continue), 3, 4, 5]"
+		# 遍历指针:[1, 2(continue), 3, 4, 5]"
 placeholder_text = "> Send your want. If finish, please press [>_ ENTER]"
 scroll_fit_content_height = true
 syntax_highlighter = SubResource("CodeHighlighter_ahyyk")

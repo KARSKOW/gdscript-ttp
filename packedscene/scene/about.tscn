@@ -49,7 +49,6 @@ theme_override_font_sizes/normal_font_size = 81
 bbcode_enabled = true
 text = "[color=88b6dd]gdscript[/color]
 TTP
-[font_size=30][test-1]
 "
 vertical_alignment = 1
 
@@ -75,4 +74,5 @@ text = " -> Font : VictorMono [github: rubjo]"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rqx2n")
 theme_override_font_sizes/font_size = 25
+text = " -> Version : 0.0.4-dev"
 script = ExtResource("3_511y1")

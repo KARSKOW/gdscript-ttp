@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6b6cvxqvr17v"]
+[gd_scene load_steps=15 format=3 uid="uid://b6b6cvxqvr17v"]
 
 [ext_resource type="FontFile" uid="uid://h5gqusvsqxyc" path="res://font/VictorMono-Bold.ttf" id="1_n8xno"]
 [ext_resource type="FontFile" uid="uid://bmcrwdw1g6aby" path="res://font/VictorMono-Medium.ttf" id="2_fxfij"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://djfqiudfvby5j" path="res://script/Q_IDE/IDE_clear.gd" id="6_2bxnq"]
 [ext_resource type="Script" uid="uid://c03sdqbkcelqf" path="res://script/Q_IDE/IDE_reset.gd" id="6_rnf4b"]
 [ext_resource type="Script" uid="uid://ch6c6mcem3x3l" path="res://script/Q_IDE/IDE_indent_lines.gd" id="6_ryv07"]
+[ext_resource type="Script" uid="uid://bci8jkss4r8no" path="res://script/Q_IDE/IDE_copy.gd" id="6_tgt3c"]
+[ext_resource type="Script" uid="uid://dcjfm83lhrvsg" path="res://script/Q_IDE/IDE_paste.gd" id="7_na2wc"]
 [ext_resource type="Script" uid="uid://c24dmfimur3nd" path="res://script/Q_IDE/IDE_result.gd" id="10_fmm56"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_rnf4b"]
@@ -16,6 +18,9 @@ symbol_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
 function_color = Color(0.9019608, 0.40392157, 0.48235294, 1)
 member_variable_color = Color(0.8039216, 0.8117647, 0.8235294, 1)
 keyword_colors = {
+"QIDE": Color(0, 0.7126699, 0.7707929, 1),
+"break": Color(0.7921569, 0.36862746, 0.43529412, 1),
+"continue": Color(0.7921569, 0.36862746, 0.43529412, 1),
 "else": Color(0.7921569, 0.36862746, 0.43529412, 1),
 "extends": Color(0.7921569, 0.36862746, 0.43529412, 1),
 "for": Color(0.7921569, 0.36862746, 0.43529412, 1),
@@ -26,8 +31,24 @@ keyword_colors = {
 "range": Color(0.32941177, 0.32941177, 0.6039216, 1),
 "return": Color(0.7921569, 0.36862746, 0.43529412, 1),
 "str": Color(0.32941177, 0.32941177, 0.6039216, 1),
+"to_print": Color(0.32941177, 0.32941177, 0.6039216, 1),
 "var": Color(0.7921569, 0.36862746, 0.43529412, 1)
 }
+color_regions = {
+"\"": Color(1, 0.92941177, 0.6313726, 1)
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhmqb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_665rt"]
 content_margin_left = 4.0
@@ -36,10 +57,10 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(1, 1, 1, 0.75)
 draw_center = false
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -50,15 +71,14 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="QUICK_IDE" type="PanelContainer"]
+[node name="QUICK_IDE" type="PanelContainer" groups=["USE_IDE"]]
+y_sort_enabled = true
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.35677084
 grow_horizontal = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="Node" type="Node" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -71,13 +91,9 @@ theme_override_fonts/font = ExtResource("1_n8xno")
 theme_override_font_sizes/font_size = 25
 text = " > QuickIDE"
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
-
 [node name="CodeEdit" type="CodeEdit" parent="VBoxContainer"]
+visibility_layer = 31
+z_index = 9
 clip_contents = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_n8xno")
@@ -91,23 +107,24 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 script = ExtResource("4_fxfij")
 reset_code = "extends Node
-func pressed_enter():
-	return 100"
+func _ready():
+	QIDE.to_print(100)"
+code_prefixes = PackedStringArray(".", "Q", "e", "f", "_")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 
-[node name="ENTER" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("test_node", "code_edit", "output_result")]
+[node name="START" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("code_edit", "output_result")]
 clip_contents = true
 custom_minimum_size = Vector2(140.39, 51.335)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_n8xno")
 theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhmqb")
 theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
-text = ">_ ENTER"
+text = "START >"
 script = ExtResource("5_ryv07")
-test_node = NodePath("../../../Node")
 code_edit = NodePath("../../CodeEdit")
 output_result = NodePath("../../RichTextLabel")
 
@@ -122,18 +139,40 @@ text = "* RESET"
 script = ExtResource("6_rnf4b")
 code_edit = NodePath("../../CodeEdit")
 reset_code = "extends Node
-func pressed_enter():
-	return 100"
+func _ready():
+	QIDE.to_print(100)"
 
 [node name="INDENT" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("code_edit")]
 clip_contents = true
-custom_minimum_size = Vector2(140.39, 51.335)
+custom_minimum_size = Vector2(84.57, 51.335)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_n8xno")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
 text = "->|"
 script = ExtResource("6_ryv07")
+code_edit = NodePath("../../CodeEdit")
+
+[node name="COPY" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("code_edit")]
+clip_contents = true
+custom_minimum_size = Vector2(84.57, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = "COPY"
+script = ExtResource("6_tgt3c")
+code_edit = NodePath("../../CodeEdit")
+
+[node name="PASTE" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("code_edit")]
+clip_contents = true
+custom_minimum_size = Vector2(84.57, 51.335)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n8xno")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_665rt")
+text = "PASET"
+script = ExtResource("7_na2wc")
 code_edit = NodePath("../../CodeEdit")
 
 [node name="Clear" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("output_result")]
@@ -147,7 +186,7 @@ text = "[X]Clear"
 script = ExtResource("6_2bxnq")
 output_result = NodePath("../RichTextLabel")
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="result" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_n8xno")
 theme_override_font_sizes/font_size = 20
@@ -163,16 +202,21 @@ theme_override_fonts/normal_font = ExtResource("2_fxfij")
 theme_override_fonts/bold_font = ExtResource("1_n8xno")
 theme_override_fonts/bold_italics_font = ExtResource("1_n8xno")
 theme_override_fonts/italics_font = ExtResource("3_ryv07")
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
-theme_override_font_sizes/bold_italics_font_size = 26
-theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("10_fmm56")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ENTER" to="VBoxContainer/HBoxContainer/ENTER" method="_on_pressed"]
-[connection signal="print_result" from="VBoxContainer/HBoxContainer/ENTER" to="VBoxContainer/RichTextLabel" method="_on_printter"]
+[connection signal="code_completion_requested" from="VBoxContainer/CodeEdit" to="VBoxContainer/CodeEdit" method="_on_code_completion_requested"]
+[connection signal="text_changed" from="VBoxContainer/CodeEdit" to="VBoxContainer/CodeEdit" method="_on_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/START" to="VBoxContainer/HBoxContainer/START" method="_on_pressed"]
+[connection signal="toggle_enter" from="VBoxContainer/HBoxContainer/START" to="VBoxContainer/CodeEdit" method="_on_toggle_enter"]
+[connection signal="toggle_exit" from="VBoxContainer/HBoxContainer/START" to="VBoxContainer/CodeEdit" method="_on_toggle_exit"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/RESET" to="VBoxContainer/HBoxContainer/RESET" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/INDENT" to="VBoxContainer/HBoxContainer/INDENT" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/COPY" to="VBoxContainer/HBoxContainer/COPY" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PASTE" to="VBoxContainer/HBoxContainer/PASTE" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Clear" to="VBoxContainer/Clear" method="_on_pressed"]

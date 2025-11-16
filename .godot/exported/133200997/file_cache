@@ -1,7 +1,8 @@
-res://packedscene/plugin/quick_IDE.tscn::939f06a868fe6f3f42f83bb294b09744::1762950970::res://.godot/exported/133200997/export-5fcdb2a7ed223451b5ce6976e19a1c4e-quick_IDE.scn
-res://packedscene/scene/about.tscn::66756d33c73fb56f4f0646dd8e247946::1762865596::res://.godot/exported/133200997/export-4bb7a963ffb7c7207c9706fb7226650e-about.scn
+res://packedscene/plugin/quick_IDE.tscn::884297f61e36018cd541b691213c2624::1763274855::res://.godot/exported/133200997/export-5fcdb2a7ed223451b5ce6976e19a1c4e-quick_IDE.scn
+res://packedscene/scene/about.tscn::c5733edc5ea02b8ff4c78c055a3be912::1763274910::res://.godot/exported/133200997/export-4bb7a963ffb7c7207c9706fb7226650e-about.scn
 res://packedscene/scene/bb_code.tscn::9651990567bc121ee9cc2cccc1d69cc5::1762603943::res://.godot/exported/133200997/export-12b3c9773caee15fdd9f9c4462c1ebad-bb_code.scn
 res://packedscene/scene/gdscript_array.tscn::d9b2914db59417f4422893b740f883da::1762950493::res://.godot/exported/133200997/export-9607ccfd7d4d1b5a1901499887dceb77-gdscript_array.scn
-res://packedscene/scene/gdscript_keywords.tscn::e2368316949f73543db8a5f4b76f5b82::1762964152::res://.godot/exported/133200997/export-e18df7dfe5e860122b7cd84d92da06f9-gdscript_keywords.scn
+res://packedscene/scene/gdscript_keywords.tscn::c4c5a86666ff59b31435953e1234336e::1763219289::res://.godot/exported/133200997/export-e18df7dfe5e860122b7cd84d92da06f9-gdscript_keywords.scn
 res://packedscene/scene/IDE.tscn::b9afde3b868fa55a4ebd66a98e39c4e4::1762965562::res://.godot/exported/133200997/export-b09d3c258e90ad894689827872d2c783-IDE.scn
-res://packedscene/menu.tscn::4b1177d4008ec31fa3c1962303d19591::1762964143::res://.godot/exported/133200997/export-8f640d2dfc511acece4591220c31a3ac-menu.scn
+res://packedscene/menu.tscn::9169c924fe8762996203002cf6035005::1763222957::res://.godot/exported/133200997/export-8f640d2dfc511acece4591220c31a3ac-menu.scn
+res://packedscene/scene/start.tscn::dba925a28ce0d177b67c998aaad2f9f0::1763213255::res://.godot/exported/133200997/export-f946cad97602e33927e1c55b7d5d8250-start.scn
